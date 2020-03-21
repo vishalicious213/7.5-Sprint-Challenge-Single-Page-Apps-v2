@@ -25,7 +25,9 @@ In this challenge, you will create a Single Page Application complete with Clien
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question.
 
-- [ ]  Explain benefit(s) using `client-side routing`?
+- [x]  Explain benefit(s) using `client-side routing`?
+
+The main benefit of client-side routing is that data is not refreshed when interacting with a page/application. This means less calls to the server for updates and greater application speed after initial load.
 
 > Answer:
 
