@@ -2,11 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 const Card = styled.div`
-        width: 19rem;
-        margin-bottom: 1.5rem;
-        background-color: cadetblue;
-        border-radius: .5rem;
-        padding: .5rem`
+  width: 19rem;
+  margin-bottom: 1.5rem;
+  background-color: cadetblue;
+  border: 2px solid darkkhaki;
+  border-radius: .5rem;
+  padding: .5rem;
+  :hover {border: 2px solid black;}`
 
 export default function CharacterCard(props) {
   // return <span>todo: character</span>;
