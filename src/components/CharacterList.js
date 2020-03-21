@@ -21,13 +21,14 @@ export default function CharacterList() {
     })
   }, []);
 
-  console.log(charList); //charList is using state
+  // console.log(charList); //charList is using state
 
   return (
     <section className="character-list">
       <h2>TODO: `array.map()` over your state here!</h2>
       {charList.map(char => {
-        return <CharacterCard />
+        // console.log(char.name, char.species, char.status, char.gender)
+        return <CharacterCard key={char.id} name={char.name} />
       })}
     </section>
   );
