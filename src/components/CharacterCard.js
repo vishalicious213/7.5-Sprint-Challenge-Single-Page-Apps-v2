@@ -4,6 +4,7 @@ export default function CharacterCard(props) {
   // return <span>todo: character</span>;
   return (
     <div>
+      <img src={props.imgSrc} alt={props.name}></img>
       <h2>{props.name}</h2>
       <p>Species: {props.species}</p>
       <p>Type: {props.type}</p>
