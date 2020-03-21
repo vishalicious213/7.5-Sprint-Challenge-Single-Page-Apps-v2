@@ -28,7 +28,7 @@ export default function CharacterList() {
       <h2>TODO: `array.map()` over your state here!</h2>
       {charList.map(char => {
         // console.log(char.name, char.species, char.status, char.gender)
-        return <CharacterCard key={char.id} name={char.name} />
+        return <CharacterCard key={char.id} name={char.name} species={char.species} type={char.type} status={char.status} gender={char.gender} origin={char.origin.name} location={char.location.name} imgSrc={char.image} />
       })}
     </section>
   );
