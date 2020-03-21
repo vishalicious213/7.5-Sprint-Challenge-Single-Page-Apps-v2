@@ -8,12 +8,15 @@ export default function SearchForm() {
   useEffect(() => {
     axios.get('https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/')
     .then(response => {
-      setCharList(response.data.results);
+      const allChars = response.data.results;
+      const seeking = allChars.filter(char =>
+        char.name.includes(searchString));
+      setCharList(seeking)
     })
     .catch(error => {
       console.log("Error retrieving data: ", error);
     })
-  }, []);
+  }, [searchString]);
 
   const handleSearch = event => {
     setSearchString(event.target.value);
@@ -31,6 +34,14 @@ export default function SearchForm() {
           placeholder="Enter character name"
         />
       </form>
+
+      <div className="results">
+        {charList.map(char => {
+          return (
+            <p>{char.name}</p>
+          )
+        })}
+      </div>
     </section>
   );
 }
