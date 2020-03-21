@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
+import CharacterCard from "./CharacterCard";
 
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
+  const [charList, setCharList] = useState([]);
 
   useEffect(() => {
     // TODO: Add API Request here - must run in `useEffect`
@@ -10,13 +12,16 @@ export default function CharacterList() {
     axios.get('https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/')
     .then(response => {
       // console.log(response);
-      const charList = response.data.results;
-      console.log(charList);
+      // const charList = response.data.results;
+      // console.log(charList);
+      setCharList(response.data.results);
     })
     .catch(error => {
       console.log("Error retrieving data: ", error);
     })
   }, []);
+
+  console.log(charList); //charList is using state
 
   return (
     <section className="character-list">
