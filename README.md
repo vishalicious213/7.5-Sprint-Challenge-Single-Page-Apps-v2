@@ -71,13 +71,13 @@ _Display Data from a Server API_
 
 _Add a Router to this application using [React Router](https://reacttraining.com/react-router/web/guides/quick-start)._
 
-- [ ]  Hook up the Welcome page(Home page) and a Characters page with React Router.
+- [x]  Hook up the Welcome page(Home page) and a Characters page with React Router.
 - [x]  Use a styling or component library for part of or all of your application. (Pick at least 1 of: [s](https://react-bootstrap.github.io/)tyled-components or Reactstrap).
 
 _Add 'Search by Name' feature._
 
-- [ ]  Add the `<SearchForm />` component (see `./components/SearchForm.js`).
-- [ ]  Create a search form that will filter through the data displayed in the character list.
+- [x]  Add the `<SearchForm />` component (see `./components/SearchForm.js`).
+- [x]  Create a search form that will filter through the data displayed in the character list.
 
 ### **Required best practices:**
 
