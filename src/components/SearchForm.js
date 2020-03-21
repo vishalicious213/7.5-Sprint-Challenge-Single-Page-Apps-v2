@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import styled from "styled-components";
 import CharacterCard from "./CharacterCard";
 
 export default function SearchForm() {
@@ -34,6 +35,7 @@ export default function SearchForm() {
           name="search"
           placeholder="Enter character name"
         />
+        <button>Reset Search</button>
       </form>
 
       <div className="results">
