@@ -26,6 +26,9 @@ export default function CharacterList() {
   return (
     <section className="character-list">
       <h2>TODO: `array.map()` over your state here!</h2>
+      {charList.map(char => {
+        return <CharacterCard />
+      })}
     </section>
   );
 }
