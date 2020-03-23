@@ -40,14 +40,15 @@ const Button = styled.button`
 export default function SearchForm() {
   const [charList, setCharList] = useState([]);
   const [searchString, setSearchString] = useState("");
+  const [typedString, setTypedString] = useState("");
 
   useEffect(() => {
     axios.get('https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/')
     .then(response => {
       const allChars = response.data.results;
       const seeking = allChars.filter(char =>
-        char.name.includes(searchString));
-      setCharList(seeking)
+        char.name.toLowerCase().includes(searchString.toLowerCase()));
+      setCharList(seeking);
     })
     .catch(error => {
       console.log("Error retrieving data: ", error);
@@ -55,33 +56,31 @@ export default function SearchForm() {
   }, [searchString]);
 
   const handleSearch = event => {
-    setSearchString(event.target.value);
+    setTypedString(event.target.value);
   };
+
+  const stopAxios = event => {
+    event.preventDefault();
+    setSearchString(typedString);
+  }
  
   return (
     <section className="search-form">
      {/* Add a search form here */}
-      <form className="search">
+      <form onSubmit={stopAxios} className="search">
         <Input
           type="text"
           onChange={handleSearch}
-          value={searchString}
+          value={typedString}
           name="search"
           placeholder="Enter character name"
         />
-        <Button>Reset Search</Button>
+        <Button type="submit">Search</Button>
       </form>
 
-      <div className="results">
+      <div className="character-list">
         {charList.map(char => {
-          return (
-            // <p>{char.name}</p>
-            <section className="character-list" key={char.id}>
-              {charList.map(char => {
-                return <CharacterCard key={char.id} name={char.name} species={char.species} type={char.type} status={char.status} gender={char.gender} origin={char.origin.name} location={char.location.name} imgSrc={char.image} />
-              })}
-            </section>
-          )
+          return <CharacterCard key={char.id} name={char.name} species={char.species} type={char.type} status={char.status} gender={char.gender} origin={char.origin.name} location={char.location.name} imgSrc={char.image} />
         })}
       </div>
     </section>
